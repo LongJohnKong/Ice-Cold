@@ -1,6 +1,6 @@
 var count = 100;
 
-var counter = setInterval(timer, 597); //1000 will  run it every 1 second
+var counter = setInterval(timer, 597); //1000 will  run it every 1 second //good one moan
 
 function timer()
 {
@@ -20,4 +20,6 @@ if (count == 0)
 	context.fillStyle = "#FFF";
 	context.font = "32px Arial";
 	context.fillText("You Froze Boy", 200, 240);
+	
+	froze.play()
 }
