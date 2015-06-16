@@ -7,8 +7,32 @@ var Player = function()
 	this.image.src = "yeti1.png"
 	this.pos.x = CANVAS_WIDTH
 	this.pos.y = CANVAS_HEIGHT
+	this.speed = 5
 }
 
+Player.prototype.update = function()
+{
+	if(Keyboard.isKeyDown(keyboard.KEY_LEFT) == true)
+	{
+		this.pos.x -= 1
+	}
+	
+	if(Keyboard.isKeyDown(keyboard.KEY_RIGHT) == true)
+	{
+	
+	}
+	
+	if(Keyboard.isKeyDown(keyboard.KEY_UP) == true)
+	{
+	
+	}
+	
+	if(Keyboard.isKeyDown(keyboard.KEY_DOWN) == true)
+	{
+	
+	}
+	
+}
 
 // MOVEMENT
 
