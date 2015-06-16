@@ -20,7 +20,6 @@ function getDeltaTime()
 
 	var deltaTime = (startFrameMillis - endFrameMillis) * 0.001;
 	
-
 	if(deltaTime > 1)
 		deltaTime = 1;
 		
@@ -40,9 +39,8 @@ music.play()
 
 function run()
 {
-	var deltaTime = getDeltaTime();
-	context.fillStyle = "#ccc";
-	context.fillRect(0, 0, canvas.width, canvas.height);
+	var deltaTime = getDeltaTime()
+	DEMONSTRATION(deltaTime)
 };
 
 (function() {

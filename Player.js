@@ -1,6 +1,9 @@
 var PLAYER_SPEED = 2.5;
 var PLAYER_TURN_SPEED = .05;
 //Player Values
+
+var keyboard = new Keyboard();
+
 var Player = function()
 {
 	this.image = document.createElement("img")
@@ -12,30 +15,30 @@ var Player = function()
 
 Player.prototype.update = function()
 {
-	if(Keyboard.isKeyDown(keyboard.KEY_LEFT) == true)
+	if(keyboard.isKeyDown(keyboard.KEY_LEFT) == true)
 	{
 		this.PositionX -= this.speed
 	}
 	
-	if(Keyboard.isKeyDown(keyboard.KEY_RIGHT) == true)
+	if(keyboard.isKeyDown(keyboard.KEY_RIGHT) == true)
 	{
 		this.PositionX += this.speed
 	}
 	
-	if(Keyboard.isKeyDown(keyboard.KEY_UP) == true)
+	if(keyboard.isKeyDown(keyboard.KEY_UP) == true)
 	{
 		this.PositionY -= this.speed
 	}
 	
-	if(Keyboard.isKeyDown(keyboard.KEY_DOWN) == true)
+	if(keyboard.isKeyDown(keyboard.KEY_DOWN) == true)
 	{
 		this.PositionY += this.speed
 	}
 }
 
-Player.prototype.draw = function()
+Player.prototype.draw = function(context)
 {
-	this.context.drawImage(this.image,this.pos.x,this.pos.y)
+	context.drawImage(this.image,this.PositionX,this.PositionY)
 }
 
 // DRAWING

@@ -1,8 +1,13 @@
 //DEMO
 
-var player = new Player;
+var player = new Player();
 
-var DEMONSTRATION = function()
+function DEMONSTRATION(deltatime)
 {
-	Player.draw()
+
+	console.log("DEMO LOADED")
+	context.fillStyle = "#ccc";
+	context.fillRect(0, 0, canvas.width, canvas.height);
+	player.draw(context)
+	player.update(deltatime)
 }
