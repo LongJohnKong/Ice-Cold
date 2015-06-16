@@ -36,6 +36,14 @@ var music = new Howl(
 		volume : 1
 });
 
+var froze = new Howl(
+{
+		urls: ["crunch.wav"],
+		loop : false,
+		buffer : true,
+		volume : 1
+});
+
 music.play()
 
 function run()
