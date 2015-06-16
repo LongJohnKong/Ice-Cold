@@ -36,7 +36,7 @@ var music = new Howl(
 		volume : 1
 });
 
-
+music.play()
 
 function run()
 {
