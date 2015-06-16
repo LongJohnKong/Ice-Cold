@@ -2,8 +2,8 @@
 var Enemy = 
 {
 	image : document.createElement("img"),
-	x : SCREEN_WIDTH/2,
-	y : SCREEN_HEIGHT/2,
+	x : 480/2,
+	y : 640/2,
 	width : 53,
 	height : 84,
 	directionX: 0,

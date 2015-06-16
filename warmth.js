@@ -11,3 +11,13 @@ function timer()
      return;
   }
 }
+
+if (count == 0)
+{
+	Player.x = -100;
+	Player.y = -100;
+	
+	context.fillStyle = "#FFF";
+	context.font = "32px Arial";
+	context.fillText("You Froze Boy", 200, 240);
+}
