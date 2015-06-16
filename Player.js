@@ -9,7 +9,6 @@ var Player = function()
 	this.pos.y = CANVAS_HEIGHT
 }
 
-Player.image.src = "yeti1.png";
 
 // MOVEMENT
 
@@ -27,9 +26,9 @@ Player.image.src = "yeti1.png";
 	Player.rotation += Player.angularDirection * PLAYER_TURN_SPEED;
 
 // DRAWING
-	
-	context.save();
-		context.translate( Player.x, Player.y);
-		context.rotate(Player.rotation);
-		context.drawImage(Player.image, -Player.width/2, -Player.height/2);
-	context.restore();
+//	
+//	context.save();
+//		context.translate( Player.x, Player.y);
+//		context.rotate(Player.rotation);
+//		context.drawImage(Player.image, -Player.width/2, -Player.height/2);
+//	context.restore();
