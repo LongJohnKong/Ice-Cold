@@ -10,5 +10,4 @@ function timer()
      clearInterval(counter);
      return;
   }
-
 }
