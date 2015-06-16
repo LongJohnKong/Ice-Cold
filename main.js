@@ -27,7 +27,16 @@ function getDeltaTime()
 	return deltaTime;
 }
 
-//
+//SOUNDS N MUSIC
+var music = new Howl(
+{
+		urls: ["bg.mp3"],
+		loop : true,
+		buffer : true,
+		volume : 1
+});
+
+
 
 function run()
 {
