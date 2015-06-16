@@ -1,6 +1,8 @@
 //DEMO
 
-function DEMONSTRATION()
+var player = new Player;
+
+var DEMONSTRATION = function()
 {
-	
+	Player.draw()
 }

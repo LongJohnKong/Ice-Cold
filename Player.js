@@ -5,8 +5,8 @@ var Player = function()
 {
 	this.image = document.createElement("img")
 	this.image.src = "yeti1.png"
-	this.pos.x = CANVAS_WIDTH
-	this.pos.y = CANVAS_HEIGHT
+	this.PositionX = 640/2
+	this.PositionY = 480/2
 	this.speed = 5
 }
 
@@ -14,40 +14,29 @@ Player.prototype.update = function()
 {
 	if(Keyboard.isKeyDown(keyboard.KEY_LEFT) == true)
 	{
-		this.pos.x -= 1
+		this.PositionX -= this.speed
 	}
 	
 	if(Keyboard.isKeyDown(keyboard.KEY_RIGHT) == true)
 	{
-	
+		this.PositionX += this.speed
 	}
 	
 	if(Keyboard.isKeyDown(keyboard.KEY_UP) == true)
 	{
-	
+		this.PositionY -= this.speed
 	}
 	
 	if(Keyboard.isKeyDown(keyboard.KEY_DOWN) == true)
 	{
-	
+		this.PositionY += this.speed
 	}
-	
 }
 
-// MOVEMENT
-
-	var s = Math.sin(Player.rotation);
-	var c = Math.cos(Player.rotation);
-
-	var xDir = (Player.directionX * c) - (Player.directionY * s);
-	var yDir = (Player.directionX * s) + (Player.directionY * c);
-	var xVel = xDir * PLAYER_SPEED;
-	var yVel = yDir * PLAYER_SPEED;
-
-	Player.x += xVel;
-	Player.y += yVel;
-	
-	Player.rotation += Player.angularDirection * PLAYER_TURN_SPEED;
+Player.prototype.draw = function()
+{
+	this.context.drawImage(this.image,this.pos.x,this.pos.y)
+}
 
 // DRAWING
 //	
