@@ -2,15 +2,11 @@
 var canvas = document.getElementById("gameCanvas");
 var context = canvas.getContext("2d");
 
-//sets a listener functions so we can get input from the player
-window.addEventListener('keydown', function(evt) { onKeyDown(evt); }, false);
-window.addEventListener('keyup', function(evt) { onKeyUp(evt); }, false);
-
 ////////////////////////////////////////////////////////////
 //CONSTANTS////////////////////////////////////////////////
 //////////////////////////////////////////////////////////
-var SCREEN_WIDTH = canvas.width;
-var SCREEN_HEIGHT = canvas.height;
+var CANVAS_WIDTH = canvas.width;
+var CANVAS_HEIGHT = canvas.height;
 
 
 // 

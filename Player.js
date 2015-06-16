@@ -1,22 +1,18 @@
 var PLAYER_SPEED = 2.5;
 var PLAYER_TURN_SPEED = .05;
 //Player Values
-var Player = 
+var Player = function()
 {
-	image : document.createElement("img"),
-	x : 640/2,
-	y : 480/2,
-	width : 128,
-	height : 128,
-	directionX: 0,
-	directionY: 0,
-	angularDirection: 0,
-	rotation: 0
-};
+	this.image = document.createElement("img")
+	this.image.src = "yeti1.png"
+	this.pos.x = CANVAS_WIDTH
+	this.pos.y = CANVAS_HEIGHT
+}
 
 Player.image.src = "yeti1.png";
-	
-/*	
+
+// MOVEMENT
+
 	var s = Math.sin(Player.rotation);
 	var c = Math.cos(Player.rotation);
 
@@ -30,9 +26,10 @@ Player.image.src = "yeti1.png";
 	
 	Player.rotation += Player.angularDirection * PLAYER_TURN_SPEED;
 
+// DRAWING
+	
 	context.save();
 		context.translate( Player.x, Player.y);
 		context.rotate(Player.rotation);
 		context.drawImage(Player.image, -Player.width/2, -Player.height/2);
 	context.restore();
-*/
