@@ -1,15 +1,12 @@
-//First get access to our canvas object we've defined in our html
+// MAIN
 var canvas = document.getElementById("gameCanvas");
 var context = canvas.getContext("2d");
-
 ////////////////////////////////////////////////////////////
-//CONSTANTS////////////////////////////////////////////////
+//						CONSTANTS						 //
 //////////////////////////////////////////////////////////
-var CANVAS_WIDTH = canvas.width;
-var CANVAS_HEIGHT = canvas.height;
+var CANVASWIDTH = canvas.width;
+var CANVASHEIGHT = canvas.height;
 
-
-// 
 //DELTA TIME
 var startFrameMillis = Date.now();
 var endFrameMillis = Date.now();
@@ -43,12 +40,14 @@ var froze = new Howl(
 		volume : 1
 });
 
-music.play()
-
+music.play();
 function run()
 {
+	context.fillStyle = "#ccc"
+	context.fillRect(0, 0, 	canvas.width, canvas.height)
 	var deltaTime = getDeltaTime()
 	DEMONSTRATION(deltaTime)
+	
 };
 
 (function() {

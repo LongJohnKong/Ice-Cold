@@ -1,15 +1,13 @@
-var PLAYER_SPEED = 2.5;
-var PLAYER_TURN_SPEED = .05;
 //Player Values
 
 var keyboard = new Keyboard();
 
-var Player = function()
+var Player = function(x,y)
 {
 	this.image = document.createElement("img")
 	this.image.src = "yeti1.png"
-	this.PositionX = 640/2
-	this.PositionY = 480/2
+	this.PositionX = x/2
+	this.PositionY = y/2
 	this.speed = 5
 }
 
