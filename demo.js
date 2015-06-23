@@ -33,7 +33,7 @@ for (var y = 0; y < 15; y++)
 	context.font = "18px Arial"
 	context.fillText("DEBUG CONSOLE",CANVASWIDTH/2, CANVASHEIGHT/8)
 	context.fillText("PLAYER" + player.PositionX + " " + player.PositionY,CANVASWIDTH/2, CANVASHEIGHT/5)
-	context.fillText("ENEMY" + enemy.PositionX + " " + enemy.PositionY,CANVASWIDTH/2, CANVASHEIGHT/6)
+	context.fillText("ENEMY" + enemy.POS.x + " " + enemy.POS.y,CANVASWIDTH/2, CANVASHEIGHT/6)
 	enemy.draw(context)
 	enemy.update(deltatime)
 	player.draw(context)

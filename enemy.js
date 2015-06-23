@@ -1,48 +1,61 @@
 //Enemy Values
+// Magnitude is the LENGTH OF A VECTOR
+// REMEMBER
 var Enemy = function(x,y)
 {
-	this.image = document.createElement("img")
-	this.image.src = "enemy.png"
-	this.PositionX = 100
-	this.PositionY = 100
-	this.speed = 2
-	this.ALIVE = true
+	this.image = document.createElement("img");
+	this.image.src = "enemy.png";
+	
+	this.POS = new Vector2();
+	this.POS.set(100,100);
+	this.speed = 200;
+	this.rot = 0;
+	
+	this.Points = [];
+	
+	this.Points[0] = new Vector2();
+	this.Points[0].set(400,100);
+	
+	this.Points[1] = new Vector2();
+	this.Points[1].set(200,600);
+	
+	this.Points[2] = new Vector2();
+	this.Points[2].set(400,400);
+	
+	this.CurrentPointIndex = 0;
 };
 
-	var MoveA = false
-	var MoveB = false
-	var MoveC = false
 	
-Enemy.prototype.update = function(deltatime)
+Enemy.prototype.update = function(DeltaTime)
 {
-	if(this.PositionX != 400)
+	var Direction = this.Points[this.CurrentPointIndex].copy();
+		Direction.subtract(this.POS);
+	var Distance = Direction.magnitude();
+	
+	if (Distance > 1)
 	{
-		this.PositionX += this.speed
+		Direction.normalize();
+		
+		Direction.multiplyScalar(this.speed);
+		Direction.multiplyScalar(DeltaTime);
+		
+		this.POS.add(Direction);
 	}
-	
-	if(this.PositionX == 400)
-	(
-		MoveA = true
-	)
-	
-	if (MoveB === false && MoveA == true)
+	else
 	{
-		this.PositionY += this.speed
+		this.CurrentPointIndex ++;
+		if(this.CurrentPointIndex > this.Points.length - 1)
+		{
+			this.CurrentPointIndex = 0;
+		}
 	}
-	
-	if(this.PositionY == 350)
-	{
-		MoveB = true
-	}
-	
-	if(MoveB === true)
-	{
-		this.PositionX -= this.speed
-	}
-	
 }
 
-Enemy.prototype.draw = function(context)
+Enemy.prototype.draw = function(context, DeltaTime)
 {
-	context.drawImage(this.image,this.PositionX,this.PositionY)
+	context.save();
+		context.translate(this.POS.x,this.POS.y);
+		context.rotate(this.rot);
+		context.drawImage(this.image,-this.image.width/2,-this.image.height/2);
+	context.restore();
 }
