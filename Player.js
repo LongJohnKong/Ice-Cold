@@ -74,7 +74,6 @@ Player.prototype.update = function(deltaTime)
 	//this.rotation += 0.1;// this.angularDirection * this.speed;	
 }
 
-
 Player.prototype.draw = function(context)
 {
 	context.save();
