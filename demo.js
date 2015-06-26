@@ -2,6 +2,7 @@
 
 var player = new Player(640,480);
 var enemy = new Enemy(640,480);
+var bonfire = new bonfire(640,480);
 //var mouse = new Mouse();
 var Grass = document.createElement("img");
 
@@ -34,6 +35,7 @@ for (var y = 0; y < 15; y++)
 	context.fillText("DEBUG CONSOLE",CANVASWIDTH/2, CANVASHEIGHT/8)
 	context.fillText("PLAYER" + player.PositionX + " " + player.PositionY,CANVASWIDTH/2, CANVASHEIGHT/5)
 	context.fillText("ENEMY" + enemy.POS.x + " " + enemy.POS.y,CANVASWIDTH/2, CANVASHEIGHT/6)
+	bonfire.draw(context)
 	enemy.draw(context)
 	enemy.update(deltatime)
 	player.draw(context)
