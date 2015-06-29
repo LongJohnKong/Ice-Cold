@@ -41,18 +41,25 @@ Player.prototype.update = function(deltaTime)
 	
 	if(keyboard.isKeyDown(keyboard.KEY_DOWN) == true)
 	{
-		this.currentSpeed = this.minSpeed;
+		this.currentSpeed = -this.maxSpeed;
 	}
+	
+	//if(keyboard.isKeyDown(keyboard.KEY_SPACE) == true)
+	//{
+	//
+	//}
+	
+	else
 	
 	if(keyboard.isKeyDown(keyboard.KEY_UP) == false)
 	{
 		this.currentSpeed = 0;
 	}
 	
-	if(keyboard.isKeyDown(keyboard.KEY_DOWN) == false)
-	{
-		this.currentSpeed = 0;
-	}	
+	//if(keyboard.isKeyDown(keyboard.KEY_DOWN) == false)
+	//{
+	//	this.currentSpeed = 0;
+	//}	
 	
 	//Rotation
 	var s = Math.sin(this.rotation);
