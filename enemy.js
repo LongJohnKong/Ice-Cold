@@ -1,10 +1,22 @@
 //Enemy Values
 // Magnitude is the LENGTH OF A VECTOR
 // REMEMBER
+var player = new player();
+
 var Enemy = function(x,y)
 {
 	this.image = document.createElement("img");
 	this.image.src = "enemy.png";
+	
+	this.bodyW = 53;
+	this.bodyH = 48;
+	
+	this.visionW = 80;
+	this.visionH = 100;
+	
+	this.VisionOffset = 10;
+	
+	this.alive = true;
 	
 	this.POS = new Vector2();
 	this.POS.set(100,100);
@@ -30,6 +42,8 @@ var Enemy = function(x,y)
 	this.CurrentPointIndex = 0;
 };
 
+var Ecollide = Collision();
+var Vcollide = Collision();
 	
 Enemy.prototype.update = function(DeltaTime)
 {
@@ -49,15 +63,20 @@ Enemy.prototype.update = function(DeltaTime)
 	else
 	{
 		this.CurrentPointIndex ++;
-		if(this.CurrentPointIndex > this.Points.length - 1)
-		{
-			this.CurrentPointIndex = 0;
-		}
+		if(this.CurrentPointIndex > this.Points.length - 1)   
+	
+	Ecollide(this.POS.x, this.POS.y, this.bodyW,this.bodyH,);
+	
+	if (Ecollide == true)
+	{
+		this.alive = false
 	}
+	
 }
 
 Enemy.prototype.draw = function(context, DeltaTime)
 {
+if (this.alive == true)
 	context.save();
 		context.translate(this.POS.x,this.POS.y);
 		context.rotate(this.rot);
