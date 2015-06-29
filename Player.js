@@ -11,6 +11,9 @@ var Player = function(x,y)
 	this.directionX = 0;
 	this.directionY = 1;
 	
+	
+	this.playerWidth = 96;
+	this.playerHeight = 61;
 	this.PositionX = x;
 	this.PositionY = y;
 	this.speed = 1;

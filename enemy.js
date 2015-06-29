@@ -1,7 +1,7 @@
 //Enemy Values
 // Magnitude is the LENGTH OF A VECTOR
 // REMEMBER
-var player = new player();
+var player = new Player();
 
 var Enemy = function(x,y)
 {
@@ -42,7 +42,7 @@ var Enemy = function(x,y)
 	this.CurrentPointIndex = 0;
 };
 
-var Ecollide = Collision();
+
 var Vcollide = Collision();
 	
 Enemy.prototype.update = function(DeltaTime)
@@ -63,9 +63,12 @@ Enemy.prototype.update = function(DeltaTime)
 	else
 	{
 		this.CurrentPointIndex ++;
-		if(this.CurrentPointIndex > this.Points.length - 1)   
-	
-	Ecollide(this.POS.x, this.POS.y, this.bodyW,this.bodyH,);
+		if(this.CurrentPointIndex > this.Points.length - 1)
+		{
+			this.CurrentPointIndex = 0;
+		}
+	}
+	var Ecollide = Collision(this.POS.x, this.POS.y, this.bodyW,this.bodyH,player.PositionX,player.PositionY,player.PlayerWidth,player.PlayerHeight);
 	
 	if (Ecollide == true)
 	{
