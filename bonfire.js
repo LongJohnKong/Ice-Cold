@@ -1,4 +1,4 @@
-var player = new Player (640,480);
+/*var player = new Player (640,480);
 
 var bonfire = function(x,y)
 {
@@ -24,3 +24,5 @@ bonfire.prototype.draw = function(context)
 {
 	context.drawImage(this.image, this.PositionX, this.PositionY);
 }
+
+*/

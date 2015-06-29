@@ -1,5 +1,5 @@
 //Player Values
-
+/*
 var keyboard = new Keyboard();
 
 var Player = function(x,y)
@@ -68,11 +68,6 @@ Player.prototype.update = function(deltaTime)
 	this.PositionX += xVel;
 	this.PositionY += yVel;
 	
-	var now = Date.now();
-	var lastUpdate = Date.now();
-	var DeltaTime = (now - this.lastUpdate) * 0.001;
-	this.lastUpdate = now;
-	
 	Collision()
 	
 	if (Collision == true)
@@ -90,3 +85,4 @@ Player.prototype.draw = function(context)
 		context.drawImage(this.image, -this.image.width/2, -this.image.height/2);
 	context.restore();	
 }	
+*/
