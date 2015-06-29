@@ -1,14 +1,15 @@
 var count = 100;
-var death = new GameOverState (0,0);
-var counter = setInterval(timer, 100);
+var counter = setInterval(timer, 1000);
+var deathBG = document.createElement ("img")
+deathBG.src = "gameover.png";
 
-function timer()
+
+function timer(deltaTime)
 {
-	count = count -1;
-	if (count == -1)
+	count = count - 10;
+	if (count < 0)
 	{
-	 count = 0
-	 death
+		count = 0
 	}
 	
 	document.getElementById("timer").innerHTML=count + " Warmth";
