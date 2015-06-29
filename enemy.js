@@ -14,9 +14,10 @@ var Enemy = function(x,y)
 	this.visionW = 80;
 	this.visionH = 100;
 	
-	this.VisionOffset = 10;
+	this.VisionOffset = 30;
 	
 	this.alive = true;
+	this.assassinate = false;
 	
 	this.POS = new Vector2();
 	this.POS.set(100,100);
@@ -37,14 +38,9 @@ var Enemy = function(x,y)
 	this.Points[3] = new Vector2();
 	this.Points[3].set(200,100);
 	
-
-	
 	this.CurrentPointIndex = 0;
 };
 
-
-var Vcollide = Collision();
-	
 Enemy.prototype.update = function(DeltaTime)
 {
 	var Direction = this.Points[this.CurrentPointIndex].copy();
@@ -68,21 +64,17 @@ Enemy.prototype.update = function(DeltaTime)
 			this.CurrentPointIndex = 0;
 		}
 	}
-	//var Ecollide = Collision(this.POS.x, this.POS.y, this.bodyW,this.bodyH,player.PositionX,player.PositionY,player.PlayerWidth,player.PlayerHeight);
-//	
-//	if (Ecollide == true)
-	//{
-//		this.alive = false
-//	}
-	
 }
 
 Enemy.prototype.draw = function(context, DeltaTime)
-{
-if (this.alive == true)
+{	
+	context.fillStyle = "#CCC";
+	context.fillRect(this.POS.x,this.POS.y,this.bodyW,this.bodyH)
+	context.fillRect(player.PositionX,player.PositionY,player.playerWidth,player.playerHeight)
+
 	context.save();
 		context.translate(this.POS.x,this.POS.y);
 		context.rotate(this.rot);
-		context.drawImage(this.image,-this.image.width/2,-this.image.height/2);
-	context.restore();
+		context.drawImage(this.image,-this.image.width/2 + 29,-this.image.height/2 + 15);
+	context.restore();	
 }
