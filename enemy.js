@@ -1,7 +1,7 @@
 //Enemy Values
 // Magnitude is the LENGTH OF A VECTOR
 // REMEMBER
-//var player = new Player();
+var player = new Player();
 
 var Enemy = function(x,y)
 {

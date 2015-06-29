@@ -26,7 +26,7 @@ for (var y = 0; y < 15; y++)
 		for (var x = 0; x < 20; x++)
 		{
 			context.drawImage( Background[y][x],
-							   x * 32, y * 32);
+							   x * 128, y * 128);
 		}
 	}
 	console.log("DEMO LOADED")
@@ -36,6 +36,7 @@ for (var y = 0; y < 15; y++)
 	context.fillText("PLAYER" + player.PositionX + " " + player.PositionY,CANVASWIDTH/2, CANVASHEIGHT/5)
 	context.fillText("ENEMY" + enemy.POS.x + " " + enemy.POS.y,CANVASWIDTH/2, CANVASHEIGHT/6)
 	bonfire.draw(context)
+	drawMap(context)
 	enemy.draw(context)
 	enemy.update(deltatime)
 	SceneManager.update(deltatime);

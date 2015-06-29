@@ -47,6 +47,81 @@ var froze = new Howl(
 });
 
 music.play();
+
+var cells = [];
+function initialise()
+{
+	for (var layerindex = 0; layerindex < LAYER_COUNT; layerindex++ )
+	{
+		cells[layerindex] = [];
+		var itemindex = 0;
+		
+		for(var y = 0; y < level1.layers[layerindex].height; y++)
+		{
+			cells[layerindex] [y] = [];
+			for (var x = 0; x < level1.layers[layerindex].width; x++)
+			{
+				if(level1.layers[layerindex].data[itemindex] != 0)
+				{
+					
+					cells[layerindex][y][x] = 1;
+					cells[layerindex][y - 1][x] = 1;	
+					cells[layerindex][y - 1][x + 1] = 1;
+					cells[layerindex][y][x + 1] = 1;
+				}
+				//if 
+				else if (cells[layerindex][y][x] != 1)
+				{
+					cells[layerindex][y][x] = 0;
+				}
+				itemindex ++;
+			}
+		}
+	}
+}
+
+function cellatpixelcoord(layers, x, y)
+{
+	if(x < 0 || x > SCREEN_WIDTH || y < 0)
+		return 1;
+		
+	if(y > SCREEN_HEIGHT)
+		return 0;
+	
+	return cellattilecoord(layers, tiletopixel(x), pixeltotile(y));
+};
+
+function cellattilecoord(layers, tx, ty)
+{
+	if(tx < 0 || tx >= MAP.tw || ty < 0)
+		return 1;
+		
+	if(ty >= MAP.th)
+		return 0;
+	
+	return cells[layers][ty][tx];
+};
+
+function tiletopixel(tile)
+{
+	return tile * TILE;
+};
+
+function pixeltotile(pixel)
+{
+	return Math.floor(pixel/TILE);
+};
+
+function bound(value, min, max)
+{
+	if (value < min)
+		return min
+	if (value > max)
+		return max;
+		
+	return value;
+};
+
 function run()
 {
 	
