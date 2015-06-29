@@ -11,7 +11,7 @@ var Player = function(x,y)
 	this.directionX = 0;
 	this.directionY = 1;
 	
-	
+	this.alive = true;
 	this.playerWidth = 96;
 	this.playerHeight = 61;
 	this.PositionX = x;
@@ -24,36 +24,35 @@ var Player = function(x,y)
 
 Player.prototype.update = function(deltaTime)
 {	
-	if(keyboard.isKeyDown(keyboard.KEY_LEFT) == true)
+	if (this.alive == true)
 	{
-		this.rotation -= 0.1;
-	}
 	
-	if(keyboard.isKeyDown(keyboard.KEY_RIGHT) == true)
-	{
-		this.rotation += 0.1;
-	}
-	
-	if(keyboard.isKeyDown(keyboard.KEY_UP) == true)
-	{
-		this.currentSpeed = this.maxSpeed;
-	}
-	
-	if(keyboard.isKeyDown(keyboard.KEY_DOWN) == true)
-	{
-		this.currentSpeed = -this.maxSpeed;
-	}
-	
-	//if(keyboard.isKeyDown(keyboard.KEY_SPACE) == true)
-	//{
-	//
-	//}
-	
-	else
-	
-	if(keyboard.isKeyDown(keyboard.KEY_UP) == false)
-	{
-		this.currentSpeed = 0;
+		if(keyboard.isKeyDown(keyboard.KEY_LEFT) == true)
+		{
+			this.rotation -= 0.1;
+		}
+		
+		if(keyboard.isKeyDown(keyboard.KEY_RIGHT) == true)
+		{
+			this.rotation += 0.1;
+		}
+		
+		if(keyboard.isKeyDown(keyboard.KEY_UP) == true)
+		{
+			this.currentSpeed = this.maxSpeed;
+		}
+		
+		if(keyboard.isKeyDown(keyboard.KEY_DOWN) == true)
+		{
+			this.currentSpeed = -this.maxSpeed;
+		}
+			
+		else
+		
+		if(keyboard.isKeyDown(keyboard.KEY_UP) == false)
+		{
+			this.currentSpeed = 0;
+		}
 	}
 	
 	//if(keyboard.isKeyDown(keyboard.KEY_DOWN) == false)

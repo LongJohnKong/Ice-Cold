@@ -8,6 +8,7 @@ var CANVASWIDTH = canvas.width;
 var CANVASHEIGHT = canvas.height;
 
 var SceneManager = new StateStack();
+SceneManager.push( new GameOverState() );
 SceneManager.push( new GameState() );
 SceneManager.push( new SplashState() );
 
