@@ -1,5 +1,5 @@
 //Player Values
-/*
+
 var keyboard = new Keyboard();
 
 var Player = function(x,y)
@@ -85,4 +85,4 @@ Player.prototype.draw = function(context)
 		context.drawImage(this.image, -this.image.width/2, -this.image.height/2);
 	context.restore();	
 }	
-*/
+
