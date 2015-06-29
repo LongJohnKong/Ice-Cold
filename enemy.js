@@ -14,13 +14,18 @@ var Enemy = function(x,y)
 	this.Points = [];
 	
 	this.Points[0] = new Vector2();
-	this.Points[0].set(400,100);
+	this.Points[0].set(100,100);
 	
 	this.Points[1] = new Vector2();
-	this.Points[1].set(200,600);
+	this.Points[1].set(100,200);
 	
 	this.Points[2] = new Vector2();
-	this.Points[2].set(400,400);
+	this.Points[2].set(200,200);
+	
+	this.Points[3] = new Vector2();
+	this.Points[3].set(200,100);
+	
+
 	
 	this.CurrentPointIndex = 0;
 };
