@@ -1,3 +1,7 @@
+var splashBG = document.createElement ("img");
+
+splashBG.src = "splashmain.png";
+
 var SplashState = function()
 {
 	this.prototype = BaseState;
@@ -25,11 +29,6 @@ SplashState.prototype.update = function(dt)
 
 SplashState.prototype.draw = function(dt)
 {
-	context.fillStyle = "#aaa";		
-	context.fillRect(0, 0, canvas.width, canvas.height);
-
-	context.font = "25pt Courier New";
-	context.fillStyle = "#FF0";
-	//var width = context.measureText( "Ice Cold").width;
-	context.fillText("Ice Cold", CANVASWIDTH/2, CANVASHEIGHT/2);
+	context.drawImage( splashBG,
+							   x * 0, y * 0);
 }
