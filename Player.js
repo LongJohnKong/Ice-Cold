@@ -11,8 +11,8 @@ var Player = function(x,y)
 	this.directionX = 0;
 	this.directionY = 1;
 	
-	this.PositionX = x/2;
-	this.PositionY = y/2;
+	this.PositionX = x;
+	this.PositionY = y;
 	this.speed = 1;
 	this.currentSpeed = 0;
 	this.minSpeed = 5;
@@ -70,8 +70,13 @@ Player.prototype.update = function(deltaTime)
 	var DeltaTime = (now - this.lastUpdate) * 0.001;
 	this.lastUpdate = now;
 	
-	//Rotates
-	//this.rotation += 0.1;// this.angularDirection * this.speed;	
+	Collision()
+	
+	if (Collision == true)
+	{
+		
+	}
+	
 }
 
 Player.prototype.draw = function(context)
@@ -80,6 +85,5 @@ Player.prototype.draw = function(context)
 		context.translate( this.PositionX, this.PositionY);
 		context.rotate(this.rotation);
 		context.drawImage(this.image, -this.image.width/2, -this.image.height/2);
-	context.restore();
-}
-
+	context.restore();	
+}	
