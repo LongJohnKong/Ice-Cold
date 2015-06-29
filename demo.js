@@ -38,6 +38,8 @@ for (var y = 0; y < 15; y++)
 	//bonfire.draw(context)
 	enemy.draw(context)
 	enemy.update(deltatime)
+	SceneManager.update(deltatime);
+	SceneManager.draw();
 	//player.draw(context)
 //	player.update(deltatime)
 }

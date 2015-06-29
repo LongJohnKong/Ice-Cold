@@ -7,7 +7,11 @@ var context = canvas.getContext("2d");
 var CANVASWIDTH = canvas.width;
 var CANVASHEIGHT = canvas.height;
 
-var gameState = STATE_SPLASH;
+var SceneManager = new StateStack();
+SceneManager.push( new GameState() );
+SceneManager.push( new SplashState() );
+
+var TotalTimePassed = 0;
 
 //DELTA TIME
 var startFrameMillis = Date.now();
@@ -45,23 +49,11 @@ var froze = new Howl(
 music.play();
 function run()
 {
-
-	switch (gameState)
-	{
-		case STATE_SPLASH:
-			runSplash(deltaTime);
-			break;
-		case STATE_GAME:
-			runGame(deltaTime);
-			break;
-
-		case STATE_GAMEOVER:
-			runEnd(deltaTime);
-			break;
-	}
-	context.fillStyle = "#ccc"
-	context.fillRect(0, 0, 	canvas.width, canvas.height)
-	var deltaTime = getDeltaTime()
+	
+	
+	var deltaTime = getDeltaTime();
+	TotalTimePassed += deltaTime;
+	
 	DEMONSTRATION(deltaTime)
 	
 };
