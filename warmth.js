@@ -1,6 +1,6 @@
 var Warmth = function()
 {
-	this.DEFAULT = 10;
+	this.DEFAULT = 100;
 }
 
 var Bonfire = new bonfire();
