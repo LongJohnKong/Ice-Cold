@@ -31,7 +31,7 @@ for (var y = 0; y < 15; y++)
 							   x * 128, y * 128);
 		}
 	}
-	console.log("Kye Smells")
+	console.log("Kye Smells pizza")
 	console.log("Maroun Smells")
 	console.log("DEMO LOADED");
 	context.fillStyle = "#000000";
