@@ -1,7 +1,7 @@
 //Player Values
 
 var keyboard = new Keyboard();
-
+var collision  = new Collision();
 var Player = function(x,y)
 {
 	this.image = document.createElement("img");
@@ -54,6 +54,9 @@ Player.prototype.update = function(deltaTime)
 			this.currentSpeed = 0;
 		}
 	}
+	
+
+	collision.update(deltaTime);
 	
 	//Rotation
 	var s = Math.sin(this.rotation);

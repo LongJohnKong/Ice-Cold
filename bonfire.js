@@ -15,7 +15,7 @@ var bonfire = function(x,y)
 
 bonfire.prototype.update = function(deltatime)
 {
-	collision.update(this.PositionX-50,this.PositionY-50,250,250,player.PositionX,player.PositionY,player.playerHeight,player.playerWidth);
+	collision.update(deltatime,this.PositionX-50,this.PositionY-50,250,250,player.PositionX,player.PositionY,player.playerHeight,player.playerWidth);
 	if(this.areaHeat == true)
 	{
 		this.active = true
