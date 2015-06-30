@@ -31,6 +31,8 @@ for (var y = 0; y < 15; y++)
 							   x * 128, y * 128);
 		}
 	}
+	console.log("Kye Smells")
+	console.log("Maroun Smells")
 	console.log("DEMO LOADED");
 	context.fillStyle = "#000000";
 	context.font = "18px Arial";
