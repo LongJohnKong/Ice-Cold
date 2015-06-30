@@ -3,7 +3,7 @@ var player = new Player(400,400);
 var enemy = new Enemy(640,480);
 var bonfire = new bonfire(640,480);
 var warmth = new Warmth()
-var fur = new fur(700,275)
+var fur = new fur(700,375)
 //var mouse = new Mouse();
 var Grass = document.createElement("img");
 var gameover = new GameOverState ();
@@ -39,18 +39,17 @@ for (var y = 0; y < 15; y++)
 	context.fillText("DEBUG CONSOLE",CANVASWIDTH/2, CANVASHEIGHT/8);
 	context.fillText(player.rotation + " " + player.PositionX + " " + player.PositionY,CANVASWIDTH/2, CANVASHEIGHT/5+20);
 	context.fillText("warmth" +" "+  warmth.DEFAULT, CANVASWIDTH/2, CANVASHEIGHT/5+40 );
-	bonfire.update(deltatime);
 	warmth.update(deltatime);
+	drawMap(context);
 	enemy.draw(context);
 	enemy.update(deltatime);
+	SceneManager.update(deltatime);
+	SceneManager.draw();
+	player.draw(context);
 	player.update(deltatime);
 	fur.update(deltatime);
-	gameover.update(deltatime);
-	drawMap(context);
-	SceneManager.update(deltatime);
 	fur.draw(context);
-	bonfire.draw(context);
-	player.draw(context);
+	gameover.update(deltatime);
 	gameover.draw(context);
-	SceneManager.draw();
+	
 }

@@ -59,9 +59,9 @@ Player.prototype.update = function(deltaTime)
 		{
 		player.PositionX = 128;
 		}; 
-	if (player.PositionX > CANVASWIDTH - 128)
+	if (player.PositionX > 1080 - 128)
 	{
-	player.PositionX = CANVASWIDTH - 128;
+	player.PositionX = 1080 - 128;
 	}
 	
 	if (player.PositionY < 64*3 )
@@ -69,9 +69,9 @@ Player.prototype.update = function(deltaTime)
 	player.PositionY = 64*3;
 	}; 
 		
-	if (player.PositionY > CANVASHEIGHT - 128)
+	if (player.PositionY > 640 - 128)
 	{
-	player.PositionY = CANVASHEIGHT - 128;
+	player.PositionY = 640 - 128;
 	}
 	
 	collision.update(deltaTime);
