@@ -10,7 +10,7 @@ var Player = function(x,y)
 	this.rotation = 0;
 	this.directionX = 0;
 	this.directionY = 1;
-	
+	this.win = false;
 	this.alive = true;
 	this.playerWidth = 96;
 	this.playerHeight = 61;
@@ -115,7 +115,13 @@ var fur = function(x,y)
 
 fur.prototype.update = function(deltatime)
 {
-
+	if(	this.PosX + this.bodyW < player.PositionX ||
+		this.PosY + this.bodyH < player.PositionY ||
+		this.PosY > player.PositionX + player.playerWidth ||
+		this.PosX > player.PositionY + player.playerHeight)
+		{
+			player.win = true
+		}
 }
 
 fur.prototype.draw = function(context)
