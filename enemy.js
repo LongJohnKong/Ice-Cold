@@ -3,13 +3,13 @@
 // REMEMBER
 var player = new Player();
 
-var Enemy = function(x,y)
+var Enemy = function(x,y,deltatime)
 {
 	this.image = document.createElement("img");
 	this.image.src = "enemy.png";
 	
-	this.bodyW = 53;
-	this.bodyH = 48;
+	this.bodyW = 60;
+	this.bodyH = 60;
 	
 	this.visionW = 80;
 	this.visionH = 100;
@@ -21,22 +21,22 @@ var Enemy = function(x,y)
 	
 	this.POS = new Vector2();
 	this.POS.set(100,100);
-	this.speed = 200;
+	this.speed = 0;
 	this.rot = 0;
 	
 	this.Points = [];
 	
 	this.Points[0] = new Vector2();
-	this.Points[0].set(100,100);
+	this.Points[0].set(650,200);
 	
 	this.Points[1] = new Vector2();
-	this.Points[1].set(100,200);
+	this.Points[1].set(1000,200);
 	
 	this.Points[2] = new Vector2();
-	this.Points[2].set(200,200);
+	this.Points[2].set(1000,500);
 	
 	this.Points[3] = new Vector2();
-	this.Points[3].set(200,100);
+	this.Points[3].set(650,500);
 	
 	this.CurrentPointIndex = 0;
 };
@@ -47,6 +47,8 @@ Enemy.prototype.update = function(DeltaTime)
 		Direction.subtract(this.POS);
 	var Distance = Direction.magnitude();
 	
+	this.speed = 10000 * DeltaTime
+	
 	if (Distance > 1)
 	{
 		Direction.normalize();
@@ -55,6 +57,7 @@ Enemy.prototype.update = function(DeltaTime)
 		Direction.multiplyScalar(DeltaTime);
 		
 		this.POS.add(Direction);
+		this.rot += Direction ;
 	}
 	else
 	{
@@ -64,14 +67,37 @@ Enemy.prototype.update = function(DeltaTime)
 			this.CurrentPointIndex = 0;
 		}
 	}
+	
+	if(this.CurrentPointIndex == 0)
+	{
+		this.rot = -0
+	}
+	
+	if(this.CurrentPointIndex == 1)
+	{
+		this.rot = 1.5
+	}
+	
+	if(this.CurrentPointIndex == 2)
+	{
+		this.rot = -3
+	}
+	
+	if(this.CurrentPointIndex == 3)
+	{
+		this.rot = -1.5
+	}
 }
 
 Enemy.prototype.draw = function(context, DeltaTime)
 {	
-	context.fillStyle = "#CCC";
-	context.fillRect(this.POS.x,this.POS.y,this.bodyW,this.bodyH)
-	context.fillRect(player.PositionX,player.PositionY,player.playerWidth,player.playerHeight)
 
+	context.save();
+		context.fillStyle = "#CCC";
+		context.translate(this.POS.x,this.POS.y);
+		context.fillRect(this.POS.x,this.POS.y,this.bodyW,this.bodyH)
+	context.restore();
+	
 	context.save();
 		context.translate(this.POS.x,this.POS.y);
 		context.rotate(this.rot);

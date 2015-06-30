@@ -3,6 +3,7 @@
 var player = new Player(50,400);
 var enemy = new Enemy(640,480);
 var bonfire = new bonfire(640,480);
+var warmth = new Warmth()
 //var mouse = new Mouse();
 var Grass = document.createElement("img");
 
@@ -33,9 +34,11 @@ for (var y = 0; y < 15; y++)
 	context.fillStyle = "#000000"
 	context.font = "18px Arial"
 	context.fillText("DEBUG CONSOLE",CANVASWIDTH/2, CANVASHEIGHT/8)
-	context.fillText("PLAYER" + player.PositionX + " " + player.PositionY,CANVASWIDTH/2, CANVASHEIGHT/5)
-	context.fillText("ENEMY" + enemy.POS.x + " " + enemy.POS.y,CANVASWIDTH/2, CANVASHEIGHT/6)
+	context.fillText(player.rotation + " " + player.PositionX + " " + player.PositionY,CANVASWIDTH/2, CANVASHEIGHT/5+20)
+	context.fillText("warmth" +" "+  warmth.DEFAULT, CANVASWIDTH/2, CANVASHEIGHT/5+40 )
 	bonfire.draw(context)
+	bonfire.update(deltatime)
+	warmth.update(deltatime)
 	drawMap(context)
 	enemy.draw(context)
 	enemy.update(deltatime)

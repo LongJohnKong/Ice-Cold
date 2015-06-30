@@ -1,16 +1,24 @@
-var count = 100;
-var counter = setInterval(timer, 1000);
-var deathBG = document.createElement ("img")
-deathBG.src = "gameover.png";
-
-
-function timer(deltaTime)
+var Warmth = function()
 {
-	count = count - 10;
-	if (count < 0)
+	this.DEFAULT = 100;
+}
+
+var Bonfire = new bonfire();
+
+Warmth.prototype.update = function(deltatime)
+{
+	if(player.alive == true && bonfire.active == true)
 	{
-		count = 0
+		this.DEFAULT += deltatime * 2
 	}
 	
-	document.getElementById("timer").innerHTML=count + " Warmth";
+	if(player.alive == true && bonfire.active == false)
+	{
+		this.DEFAULT -= deltatime
+	}
+	
+	if(this.DEFAULT < 0)
+	{
+		player.alive = false
+	}
 }

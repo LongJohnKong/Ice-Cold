@@ -55,11 +55,6 @@ Player.prototype.update = function(deltaTime)
 		}
 	}
 	
-	//if(keyboard.isKeyDown(keyboard.KEY_DOWN) == false)
-	//{
-	//	this.currentSpeed = 0;
-	//}	
-	
 	//Rotation
 	var s = Math.sin(this.rotation);
 	var c = Math.cos(this.rotation);
@@ -74,12 +69,6 @@ Player.prototype.update = function(deltaTime)
 	this.PositionX += xVel;
 	this.PositionY += yVel;
 	
-	Collision()
-	
-	if (Collision == true)
-	{
-		
-	}
 	
 }
 

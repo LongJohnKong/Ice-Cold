@@ -1,4 +1,4 @@
-var player = new Player (640,480);
+var player = new Player();
 
 var bonfire = function(x,y)
 {
@@ -6,22 +6,29 @@ var bonfire = function(x,y)
 	this.image.src = "bonfire.png";
 	this.PositionX = x/2;
 	this.PositionY = y/2;
+	this.active = false;
+	this.areaHeat = Collision(this.PositionX-50,this.PositionY-50,250,250,player.PositionX,player.PositionY,player.playerHeight,player.playerWidth);
+	this.Width = this.image.width
+	this.Height = this.image.height
 }
 
-var circle1 = {radius: 5, x: player.PositionX, y: player.PositionY};
-var circle2 = {radius: 2, x: this.PositionX, y: this.PositionY};
-
-var dx = circle1.x - circle2.x;
-var dy = circle1.y - circle2.y;
-var distance = Math.sqrt(dx * dx + dy * dy);
-
-if (distance < circle1.radius + circle2.radius) 
+bonfire.prototype.update = function(deltatime)
 {
-    // collision detected!
+	if(this.areaHeat == true)
+	{
+		this.active = true
+	}
+	
+	else
+	(
+		this.active = false
+	)
 }
 
 bonfire.prototype.draw = function(context)
 {
+	context.fillStyle = "#ccc"
+	context.fillRect(this.PositionX-50,this.PositionY-50,250,250)
 	context.drawImage(this.image, this.PositionX, this.PositionY);
 }
 
