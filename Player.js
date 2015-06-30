@@ -103,7 +103,7 @@ fur.prototype.draw = function(context)
 	{
 	context.save();
 		context.translate( this.PositionX, this.PositionY);
-		context.drawImage(this.image, -this.image.width/2, -this.image.height/2);
+		context.drawImage(this.image,this.PosX,this.PosY);
 	context.restore();	
 	}
 }
