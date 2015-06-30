@@ -1,6 +1,6 @@
 var Warmth = function()
 {
-	this.DEFAULT = 100;
+	this.DEFAULT = 10;
 }
 
 var Bonfire = new bonfire();
@@ -12,6 +12,8 @@ Warmth.prototype.update = function(deltatime)
 		this.DEFAULT += deltatime * 2
 	}
 	
+	else
+	
 	if(player.alive == true && bonfire.active == false)
 	{
 		this.DEFAULT -= deltatime
@@ -19,6 +21,6 @@ Warmth.prototype.update = function(deltatime)
 	
 	if(this.DEFAULT < 0)
 	{
-		player.alive = false
+		player.alive = false;
 	}
 }

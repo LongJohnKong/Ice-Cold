@@ -44,12 +44,12 @@ Player.prototype.update = function(deltaTime)
 		
 		if(keyboard.isKeyDown(keyboard.KEY_DOWN) == true)
 		{
-			this.currentSpeed = -this.maxSpeed;
+			this.currentSpeed = this.minSpeed;
 		}
 			
 		else
 		
-		if(keyboard.isKeyDown(keyboard.KEY_UP) == false)
+		if(keyboard.isKeyDown(keyboard.KEY_UP || keyboard.KEY_DOWN) == false)
 		{
 			this.currentSpeed = 0;
 		}
