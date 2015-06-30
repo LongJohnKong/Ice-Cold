@@ -89,7 +89,13 @@ Enemy.prototype.update = function(DeltaTime)
 		this.image.src = "enemyleft.png"
 	}
 		
-	//if(this.POS.x)
+	if(	this.POS.x + this.bodyW < player.PositionX ||
+		this.POS.y + this.bodyH < player.PositionY ||
+		this.POS.y > player.PositionX + player.playerWidth ||
+		this.POS.x > player.PositionY + player.playerHeight)
+		{
+			player.alive = false
+		}
 }
 
 Enemy.prototype.draw = function(context, DeltaTime)
