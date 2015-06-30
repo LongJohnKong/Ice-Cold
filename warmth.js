@@ -1,6 +1,6 @@
 var Warmth = function()
 {
-	this.DEFAULT = 20;
+	this.DEFAULT = 47;
 }
 
 var player = new Player();

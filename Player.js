@@ -119,11 +119,7 @@ fur.prototype.update = function(deltatime)
 
 fur.prototype.draw = function(context)
 {
-	if(this.collected == false)
-	{
 	context.save();
-		context.translate( this.PositionX, this.PositionY);
 		context.drawImage(this.image,this.PosX,this.PosY);
 	context.restore();	
-	}
 }

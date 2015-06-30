@@ -31,17 +31,24 @@ for (var y = 0; y < 15; y++)
 	}
 }
 
-var RestartTimer = 0;
+var RestartTimer = 3;
 
 function DEMONSTRATION(deltatime)
 {
 
-var CollideEnemy = collision(player.PositionX, player.PositionY, player.playerWidth,player.playerHeight,fur.PosX, fur.PosY, fur.Width,fur.Height)
+var CollideEnemy = collision(fur.PosX+25,fur.PosY+25,fur.width+50,fur.height+50,player.PositionX,player.PositionY,player.playerWidth,player.playerHeight)
 
 if (CollideEnemy == true)
 {
 	player.win = true
 }
+
+//if(	player.PositionX + player.playerWidth < fur.PosX + fur.width &&
+//	player.PositionY + player.playerHeight < fur.PosY + fur.height)
+//	{
+//	 player.win = true
+	//}
+
 
 
 for (var y = 0; y < 15; y++)
@@ -55,13 +62,13 @@ for (var y = 0; y < 15; y++)
 
 	if(player.alive == false || player.win == true)
 	{
-		location.reload()
+		RestartTimer -= deltatime
 	}
 	
-	////if(RestartTimer == 15)
-	//{
-	//	
-	//}
+	if(RestartTimer < 1)
+	{
+		location.reload()
+	}
 	
 	warmth.update(deltatime);
 	drawMap(context);
