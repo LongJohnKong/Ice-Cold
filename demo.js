@@ -64,7 +64,7 @@ for (var y = 0; y < 15; y++)
 	fur.draw(context);
 	context.fillStyle = "#000";
 	context.font = "30px Arial";
-	context.fillText( "warmth" + warmth.DEFAULT,600 ,50 );
+	context.fillText( "Warmth:"+ "  " + Math.floor(warmth.DEFAULT),200 ,50 );
 	gameover.update(deltatime);
 	gameover.draw(context);
 	
