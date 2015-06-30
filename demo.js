@@ -1,9 +1,10 @@
 //DEMO
 
-var player = new Player(50,400);
+var player = new Player(400,400);
 var enemy = new Enemy(640,480);
 var bonfire = new bonfire(640,480);
 var warmth = new Warmth()
+var fur = new fur(640,480)
 //var mouse = new Mouse();
 var Grass = document.createElement("img");
 
@@ -46,4 +47,6 @@ for (var y = 0; y < 15; y++)
 	SceneManager.draw();
 	player.draw(context)
 	player.update(deltatime)
+	fur.update(deltatime)
+	fur.draw(context)
 }

@@ -89,5 +89,21 @@ var fur = function(x,y)
 	this.image.src = "FUR.png";
 	this.width = 50;
 	this.height = 50;
+	this.collected = false;
 }
 
+fur.prototype.update = function(deltatime)
+{
+
+}
+
+fur.prototype.draw = function(context)
+{
+	if(this.collected == true)
+	{
+	context.save();
+		context.translate( this.PositionX, this.PositionY);
+		context.drawImage(this.image, -this.image.width/2, -this.image.height/2);
+	context.restore();	
+	}
+}
