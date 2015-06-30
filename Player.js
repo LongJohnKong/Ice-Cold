@@ -99,7 +99,7 @@ fur.prototype.update = function(deltatime)
 
 fur.prototype.draw = function(context)
 {
-	if(this.collected == true)
+	if(this.collected == false)
 	{
 	context.save();
 		context.translate( this.PositionX, this.PositionY);
