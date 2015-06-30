@@ -81,3 +81,13 @@ Player.prototype.draw = function(context)
 	context.restore();	
 }	
 
+var fur = function(x,y)
+{
+	this.PosX = x;
+	this.PosY = y;
+	this.image = document.createElement("img");
+	this.image.src = "FUR.png";
+	this.width = 50;
+	this.height = 50;
+}
+
