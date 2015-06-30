@@ -3,12 +3,22 @@ var player = new Player(400,400);
 var enemy = new Enemy(640,480);
 var bonfire = new bonfire(640,480);
 var warmth = new Warmth()
-var fur = new fur(700,375)
+var fur = new fur(700,275)
 //var mouse = new Mouse();
 var Grass = document.createElement("img");
 var gameover = new GameOverState ();
 
 Grass.src = "snow.png";
+
+function collision(x1, y1, w1, h1, x2, y2, w2, h2)
+{
+	if ( 	y2 + h2 < y1 ||
+			x2 + w2 < x1 ||
+			x2 > x1 + w1 ||
+			y2 > y1 + h1)
+		return false;
+	return true;
+}
 
 var Background = [];
 
@@ -20,8 +30,19 @@ for (var y = 0; y < 15; y++)
 		Background[y][x] = Grass;
 	}
 }
+
+
+
 function DEMONSTRATION(deltatime)
 {
+
+var CollideEnemy = collision(player.PositionX, player.PositionY, player.playerWidth,player.playerHeight,enemy.POS.x,enemy.POS.y,enemy.bodyW,enemy.bodyH)
+
+if (CollideEnemy == true)
+{
+	player.alive = false
+}
+
 
 for (var y = 0; y < 15; y++)
 	{
@@ -31,14 +52,6 @@ for (var y = 0; y < 15; y++)
 							   x * 128, y * 128);
 		}
 	}
-	console.log("Kye Smells pizza")
-	console.log("Maroun Smells")
-	console.log("DEMO LOADED");
-	context.fillStyle = "#000000";
-	context.font = "18px Arial";
-	context.fillText("DEBUG CONSOLE",CANVASWIDTH/2, CANVASHEIGHT/8);
-	context.fillText(player.rotation + " " + player.PositionX + " " + player.PositionY,CANVASWIDTH/2, CANVASHEIGHT/5+20);
-	context.fillText("warmth" +" "+  warmth.DEFAULT, CANVASWIDTH/2, CANVASHEIGHT/5+40 );
 	warmth.update(deltatime);
 	drawMap(context);
 	enemy.draw(context);
@@ -49,6 +62,9 @@ for (var y = 0; y < 15; y++)
 	player.update(deltatime);
 	fur.update(deltatime);
 	fur.draw(context);
+	context.fillStyle = "#000";
+	context.font = "30px Arial";
+	context.fillText( "warmth" + warmth.DEFAULT,600 ,50 );
 	gameover.update(deltatime);
 	gameover.draw(context);
 	

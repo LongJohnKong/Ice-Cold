@@ -3,21 +3,16 @@ var Warmth = function()
 	this.DEFAULT = 100;
 }
 
-var Bonfire = new bonfire();
+var player = new Player();
 
 Warmth.prototype.update = function(deltatime)
 {
-	if(player.alive == true && bonfire.active == true)
+	if(player.alive == true)
 	{
-		this.DEFAULT += deltatime * 2
+		this.DEFAULT -= deltatime * 2;
 	}
+
 	
-	else
-	
-	if(player.alive == true && bonfire.active == false)
-	{
-		this.DEFAULT -= deltatime
-	}
 	
 	if(this.DEFAULT < 0)
 	{

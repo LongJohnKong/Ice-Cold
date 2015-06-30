@@ -21,12 +21,15 @@ GameOverState.prototype.unload = function()
 
 GameOverState.prototype.update = function(dt)
 {
-
+	if (warmth.DEFAULT < 0)
+	{
+		player.alive == false;
+	}	
 }
 
 GameOverState.prototype.draw = function(dt)
 {
-	if (player.alive == false)
+	if (warmth.DEFAULT <  0)
 	{
 		context.drawImage( deathBG, 0, 0);
 	}

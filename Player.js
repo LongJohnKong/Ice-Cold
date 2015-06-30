@@ -24,8 +24,8 @@ var Player = function(x,y)
 
 Player.prototype.update = function(deltaTime)
 {	
-	if (this.alive == true)
-	{
+	
+	
 	
 		if(keyboard.isKeyDown(keyboard.KEY_LEFT) == true)
 		{
@@ -53,7 +53,7 @@ Player.prototype.update = function(deltaTime)
 		{
 			this.currentSpeed = 0;
 		}
-	}
+	
 	
 	if (player.PositionX < 128 )
 		{
@@ -74,7 +74,6 @@ Player.prototype.update = function(deltaTime)
 	player.PositionY = 640 - 128;
 	}
 	
-	collision.update(deltaTime);
 	
 	//Rotation
 	var s = Math.sin(this.rotation);
