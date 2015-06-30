@@ -114,13 +114,7 @@ var fur = function(x,y)
 
 fur.prototype.update = function(deltatime)
 {
-	if(	this.PosX + this.bodyW < player.PositionX ||
-		this.PosY + this.bodyH < player.PositionY ||
-		this.PosY > player.PositionX + player.playerWidth ||
-		this.PosX > player.PositionY + player.playerHeight)
-		{
-			player.win = true
-		}
+
 }
 
 fur.prototype.draw = function(context)

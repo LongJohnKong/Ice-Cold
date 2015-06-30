@@ -4,9 +4,9 @@ var enemy = new Enemy(640,480);
 var bonfire = new bonfire(640,480);
 var warmth = new Warmth()
 var fur = new fur(700,275)
-//var mouse = new Mouse();
 var Grass = document.createElement("img");
 var gameover = new GameOverState ();
+var gamewin = new GameState ();
 
 Grass.src = "snow.png";
 
@@ -31,16 +31,16 @@ for (var y = 0; y < 15; y++)
 	}
 }
 
-
+var RestartTimer = 0;
 
 function DEMONSTRATION(deltatime)
 {
 
-var CollideEnemy = collision(player.PositionX, player.PositionY, player.playerWidth,player.playerHeight,enemy.POS.x,enemy.POS.y,enemy.bodyW,enemy.bodyH)
+var CollideEnemy = collision(player.PositionX, player.PositionY, player.playerWidth,player.playerHeight,fur.PosX, fur.PosY, fur.Width,fur.Height)
 
 if (CollideEnemy == true)
 {
-	player.alive = false
+	player.win = true
 }
 
 
@@ -52,12 +52,19 @@ for (var y = 0; y < 15; y++)
 							   x * 128, y * 128);
 		}
 	}
+
+	if(player.alive == false || player.win == true)
+	{
+		location.reload()
+	}
+	
+	////if(RestartTimer == 15)
+	//{
+	//	
+	//}
+	
 	warmth.update(deltatime);
 	drawMap(context);
-	enemy.draw(context);
-	enemy.update(deltatime);
-	SceneManager.update(deltatime);
-	SceneManager.draw();
 	player.draw(context);
 	player.update(deltatime);
 	fur.update(deltatime);
@@ -65,6 +72,10 @@ for (var y = 0; y < 15; y++)
 	context.fillStyle = "#000";
 	context.font = "30px Arial";
 	context.fillText( "Warmth:"+ "  " + Math.floor(warmth.DEFAULT),200 ,50 );
+	SceneManager.update(deltatime);
+	SceneManager.draw();
+	gamewin.update(deltatime);
+	gamewin.draw(context);
 	gameover.update(deltatime);
 	gameover.draw(context);
 	
