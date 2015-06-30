@@ -1,5 +1,4 @@
 //DEMO
-
 var player = new Player(400,400);
 var enemy = new Enemy(640,480);
 var bonfire = new bonfire(640,480);

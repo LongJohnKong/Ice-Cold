@@ -1,5 +1,5 @@
 var player = new Player();
-
+//var collision  = new Collision(0,0,0,0,0,0,0,0,0)
 var bonfire = function(x,y)
 {
 	this.image = document.createElement("img");
@@ -7,7 +7,7 @@ var bonfire = function(x,y)
 	this.PositionX = x/2;
 	this.PositionY = y/2;
 	this.active = false;
-	this.areaHeat = Collision(this.PositionX-50,this.PositionY-50,250,250,player.PositionX,player.PositionY,player.playerHeight,player.playerWidth);
+	//this.areaHeat = collision(this.PositionX-50,this.PositionY-50,250,250,player.PositionX,player.PositionY,player.playerHeight,player.playerWidth);
 	this.Width = this.image.width
 	this.Height = this.image.height
 }

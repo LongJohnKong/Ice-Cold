@@ -30,10 +30,10 @@ var Enemy = function(x,y,deltatime)
 	this.Points[0].set(650,200);
 	
 	this.Points[1] = new Vector2();
-	this.Points[1].set(1000,200);
+	this.Points[1].set(900,200);
 	
 	this.Points[2] = new Vector2();
-	this.Points[2].set(1000,500);
+	this.Points[2].set(900,500);
 	
 	this.Points[3] = new Vector2();
 	this.Points[3].set(650,500);
@@ -70,22 +70,22 @@ Enemy.prototype.update = function(DeltaTime)
 	
 	if(this.CurrentPointIndex == 0)
 	{
-		this.rot = -0
+		this.image.src = "enemy.png"
 	}
 	
 	if(this.CurrentPointIndex == 1)
 	{
-		this.rot = 1.5
+		this.image.src = "enemyright.png"
 	}
 	
 	if(this.CurrentPointIndex == 2)
-	{
-		this.rot = -3
+	{	
+		this.image.src = "enemydown.png"
 	}
 	
 	if(this.CurrentPointIndex == 3)
 	{
-		this.rot = -1.5
+		this.image.src = "enemyleft.png"
 	}
 }
 
