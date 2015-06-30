@@ -2,6 +2,7 @@
 // Magnitude is the LENGTH OF A VECTOR
 // REMEMBER
 var player = new Player();
+player.update();
 
 var Enemy = function(x,y,deltatime)
 {
@@ -87,6 +88,8 @@ Enemy.prototype.update = function(DeltaTime)
 	{
 		this.image.src = "enemyleft.png"
 	}
+		
+	//if(this.POS.x)
 }
 
 Enemy.prototype.draw = function(context, DeltaTime)
